@@ -7,28 +7,20 @@ function loadLink(){
     /*Using try/catch functionality for this
     New JavaScript grammar
     */
-    output.innerHTML = "<p>";
     fetch(url)
         .then(function(response) {
-            output.innerHTML = "status is " + response.status;
-            output.innerHTML += "<br>" + response.text();
+            output.innerHTML = "<p>status is " + response.status + "<br>";
+            output.innerHTML = "OK is " + response.ok + "<br>";
+            output.innerHTML = "html is " + response.html + "<br>";
+            output.innerHTML = "headers are " + response.headers + "<br>";
+            output.innerHTML += "Response: " + response.text()+"</p>";
         })
         .then(function(html) {
             output.innerHTML += "<br>HTML:" + html;
         })
-        .then(function(status) {
-            output.innerHTML += "<br>Status:" + status;
-        })
-        .then(function(ok) {
-            output.innerHTML += "<br>OK:" + ok;
-        })
-        .then(function(headers) {
-            output.innerHTML += "<br>Headers:" + headers;
-        })
         .catch(function(error) {
-            output.innerHTML += "Request failed";
+            output.textContent = "Request failed";
         });
-    output.innerHTML += "</p>";
 }
 /*
 let url = "https://learn.zybooks.com/";
