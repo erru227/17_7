@@ -10,9 +10,9 @@ function loadLink(){
     fetch(url)
         .then(function(response) {
             output.innerHTML = "<p>status is " + response.status + "<br>";
-            output.innerHTML = "OK is " + response.ok + "<br>";
-            output.innerHTML = "html is " + response.html + "<br>";
-            output.innerHTML = "headers are " + response.headers + "<br>";
+            output.innerHTML += "OK is " + response.ok + "<br>";
+            output.innerHTML += "html is " + response.html + "<br>";
+            output.innerHTML += "headers are " + response.headers + "<br>";
             output.innerHTML += "Response: " + response.text()+"</p>";
         })
         .then(function(html) {
